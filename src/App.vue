@@ -1,18 +1,26 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div id="app">
+		<h1>Menu recursivo</h1>
+		<RecursiveMenu :menu="menuData"/>
+	</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import RecursiveMenu from '@/components/RecursiveMenu';
+import dataResource from '@/shared/data.json';
+
+function data() {
+	return {
+		menuData: dataResource.menu,
+	};
+}
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld,
-  },
+	name: 'App',
+	components: {
+		RecursiveMenu,
+	},
+	data,
 };
 </script>
 
