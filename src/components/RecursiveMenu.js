@@ -9,7 +9,7 @@ function eventHandler(e) {
 function recur(h, array) {
 	const globalStyle = {
 		cursor: 'pointer',
-		margin: '15px',
+		marginLeft: '25px',
 	};
 	const collection = [];
 	const len = array.length;
@@ -25,7 +25,7 @@ function recur(h, array) {
 					boxSizing: 'border-box',
 					display: 'flex',
 					justifyContent: 'space-between',
-					marginBottom: '15px',
+					marginBottom: '5px',
 					padding: '5px 10px',
 					width: '100%',
 				};
