@@ -2,6 +2,7 @@
     "menu": [
         {
             "title": "A",
+            "otherProp": false,
             "inner": [
                 {
                     "title": "A.1",

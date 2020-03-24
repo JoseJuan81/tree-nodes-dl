@@ -1,12 +1,20 @@
 <template>
 	<div id="app">
-		<h1>Menu recursivo</h1>
-		<RecursiveMenu :menu="menuData"/>
+		<h2>Este es el árbol de items</h2>
+		<TreeNodes
+			class="tree-node"
+			children="inner"
+			text="title"
+			:nodes="menuData"
+			v-slot="{ node }"
+		>
+			<h2 class="issue">Desde afuera: {{node.title}}</h2>
+		</TreeNodes>
 	</div>
 </template>
 
 <script>
-import RecursiveMenu from '@/components/RecursiveMenu';
+import TreeNodes from '@/components/treeNodes.vue';
 import dataResource from '@/shared/data.json';
 
 function data() {
@@ -18,7 +26,7 @@ function data() {
 export default {
 	name: 'App',
 	components: {
-		RecursiveMenu,
+		TreeNodes,
 	},
 	data,
 };
@@ -32,5 +40,16 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.issue {
+	align-items: center;
+	border: 1px solid blue;
+	border-radius: 15px;
+	display: flex;
+	height: 80px;
+	justify-content: flex-start;
+	margin: 0 0 2px 0;
+	padding-left: 15px;
 }
 </style>
