@@ -16,13 +16,9 @@
 <script>
 import AppNode from '@/components/appNode.vue';
 
-function created() {
-	this.isTree = true;
-}
-
 function data() {
 	return {
-		isTree: false,
+		isTree: true,
 	};
 }
 
@@ -31,7 +27,7 @@ export default {
 	components: {
 		AppNode,
 	},
-	created,
+	// created,
 	data,
 	props: {
 		children: {
