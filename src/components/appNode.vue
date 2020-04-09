@@ -1,9 +1,9 @@
 <template>
 	<div class="node-container-wrapper">
-		<div @click="isOpen = !isOpen">
+		<div @click="isOpen = !isOpen" class="slot-node-content">
 			<NodeContent :node="node" :isOpen="isOpen"></NodeContent>
 		</div>
-		<div v-if="node[children]" v-show="isOpen">
+		<div v-if="node[children]" v-show="isOpen" class="node">
 			<AppNode
 				v-for="(child, indexChild) in node[children]"
 				:key="indexChild"

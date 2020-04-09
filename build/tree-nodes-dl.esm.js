@@ -160,6 +160,7 @@ var __vue_render__ = function() {
     _c(
       "div",
       {
+        staticClass: "slot-node-content",
         on: {
           click: function($event) {
             _vm.isOpen = !_vm.isOpen;
@@ -181,7 +182,8 @@ var __vue_render__ = function() {
                 value: _vm.isOpen,
                 expression: "isOpen"
               }
-            ]
+            ],
+            staticClass: "node"
           },
           _vm._l(_vm.node[_vm.children], function(child, indexChild) {
             return _c("AppNode", {
@@ -266,6 +268,7 @@ var __vue_render__$1 = function() {
   var _c = _vm._self._c || _h;
   return _c(
     "div",
+    { staticClass: "tree-node-container" },
     _vm._l(_vm.nodes, function(node, indexNode) {
       return _c("AppNode", {
         key: indexNode,

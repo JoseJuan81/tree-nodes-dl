@@ -8,9 +8,11 @@
 			:nodes="menuData"
 			v-slot="{ node, isOpen }"
 		>
-			<div class="issue">
-				<h2>Desde afuera: {{node.title}}</h2>
-				<div @click="addItem($event, node, isOpen)">+</div>
+			<div>
+				<div class="issue">
+					<h2>Desde afuera: {{node.title}}</h2>
+					<div @click="addItem($event, node, isOpen)">+</div>
+				</div>
 			</div>
 		</TreeNodes>
 	</div>
@@ -60,22 +62,21 @@ export default {
   margin-top: 60px;
 }
 
-.tree-node {
-
-	.node-container-wrapper {
-		padding-left: 10px;
-	}
-}
-
 .issue {
 	align-items: center;
-	border: 1px solid blue;
-	border-radius: 15px;
+	border-top: 1px solid blue;
+	box-sizing: border-box;
 	cursor: pointer;
 	display: flex;
 	height: 80px;
 	justify-content: space-between;
-	margin: 0 0 2px 0;
 	padding: 0 15px;
+}
+
+.tree-node {
+
+	.node {
+		padding-left: 10px;
+	}
 }
 </style>

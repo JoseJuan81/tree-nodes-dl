@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="tree-node-container">
 		<AppNode
 			v-for="(node, indexNode) in nodes"
 			:key="indexNode"
