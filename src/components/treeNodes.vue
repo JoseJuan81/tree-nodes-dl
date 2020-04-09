@@ -14,7 +14,7 @@
     </div>
 </template>
 <script>
-import AppNode from '@/components/appNode.vue';
+import AppNode from './appNode.vue';
 
 function data() {
 	return {
@@ -27,7 +27,6 @@ export default {
 	components: {
 		AppNode,
 	},
-	// created,
 	data,
 	props: {
 		children: {
