@@ -46,7 +46,7 @@ export default {
 				const { node, isOpen } = this;
 				return (grand.$scopedSlots.default
 					? grand.$scopedSlots.default({ node, isOpen })
-					: <span>adentro:{node[text]}</span>);
+					: <span>{node[text]}</span>);
 			},
 		},
 	},

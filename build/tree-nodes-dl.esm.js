@@ -50,7 +50,7 @@ var script = {
 				var isOpen = ref$1.isOpen;
 				return (grand.$scopedSlots.default
 					? grand.$scopedSlots.default({ node: node, isOpen: isOpen })
-					: React.createElement( 'span', null, "adentro:", node[text] ));
+					: React.createElement( 'span', null, node[text] ));
 			},
 		},
 	},
@@ -273,23 +273,17 @@ var __vue_render__$1 = function() {
   return _c(
     "div",
     _vm._l(_vm.nodes, function(node, indexNode) {
-      return _c(
-        "div",
-        { key: indexNode },
-        [
-          _c("AppNode", {
-            attrs: {
-              indent: _vm.indent,
-              node: node,
-              children: _vm.children,
-              text: _vm.text
-            }
-          })
-        ],
-        1
-      )
+      return _c("AppNode", {
+        key: indexNode,
+        attrs: {
+          indent: _vm.indent,
+          node: node,
+          children: _vm.children,
+          text: _vm.text
+        }
+      })
     }),
-    0
+    1
   )
 };
 var __vue_staticRenderFns__$1 = [];
