@@ -1,16 +1,13 @@
 <template>
     <div>
-		<div
-            v-for="(node, indexNode) in nodes"
-            :key="indexNode"
-		>
-			<AppNode
-				:indent="indent"
-				:node="node"
-				:children="children"
-				:text="text"
-			></AppNode>
-		</div>
+		<AppNode
+			v-for="(node, indexNode) in nodes"
+			:key="indexNode"
+			:indent="indent"
+			:node="node"
+			:children="children"
+			:text="text"
+		></AppNode>
     </div>
 </template>
 <script>
