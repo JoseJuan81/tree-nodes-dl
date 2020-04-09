@@ -1,5 +1,5 @@
 <template>
-	<div :style="`margin-left:${indent}`">
+	<div class="node-container-wrapper">
 		<div @click="isOpen = !isOpen">
 			<NodeContent :node="node" :isOpen="isOpen"></NodeContent>
 		</div>
@@ -57,10 +57,6 @@ export default {
 		children: {
 			type: String,
 			required: true,
-		},
-		indent: {
-			type: String,
-			default: '25px',
 		},
 		node: {
 			type: Object,

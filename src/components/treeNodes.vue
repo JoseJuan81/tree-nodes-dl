@@ -3,7 +3,6 @@
 		<AppNode
 			v-for="(node, indexNode) in nodes"
 			:key="indexNode"
-			:indent="indent"
 			:node="node"
 			:children="children"
 			:text="text"
@@ -29,9 +28,6 @@ export default {
 		children: {
 			type: String,
 			required: true,
-		},
-		indent: {
-			type: String,
 		},
 		nodes: {
 			type: Array,

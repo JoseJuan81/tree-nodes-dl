@@ -60,6 +60,13 @@ export default {
   margin-top: 60px;
 }
 
+.tree-node {
+
+	.node-container-wrapper {
+		padding-left: 10px;
+	}
+}
+
 .issue {
 	align-items: center;
 	border: 1px solid blue;

@@ -62,10 +62,6 @@ var script = {
 			type: String,
 			required: true,
 		},
-		indent: {
-			type: String,
-			default: '25px',
-		},
 		node: {
 			type: Object,
 			required: true,
@@ -160,7 +156,7 @@ var __vue_render__ = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
-  return _c("div", { style: "margin-left:" + _vm.indent }, [
+  return _c("div", { staticClass: "node-container-wrapper" }, [
     _c(
       "div",
       {
@@ -249,9 +245,6 @@ var script$1 = {
 			type: String,
 			required: true,
 		},
-		indent: {
-			type: String,
-		},
 		nodes: {
 			type: Array,
 			required: true,
@@ -276,12 +269,7 @@ var __vue_render__$1 = function() {
     _vm._l(_vm.nodes, function(node, indexNode) {
       return _c("AppNode", {
         key: indexNode,
-        attrs: {
-          indent: _vm.indent,
-          node: node,
-          children: _vm.children,
-          text: _vm.text
-        }
+        attrs: { node: node, children: _vm.children, text: _vm.text }
       })
     }),
     1
