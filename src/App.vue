@@ -6,9 +6,12 @@
 			children="inner"
 			text="title"
 			:nodes="menuData"
-			v-slot="{ node }"
+			v-slot="{ node, isOpen }"
 		>
-			<h2 class="issue">Desde afuera: {{node.title}}</h2>
+			<div class="issue">
+				<h2>Desde afuera: {{node.title}}</h2>
+				<div @click="addItem($event, node, isOpen)">+</div>
+			</div>
 		</TreeNodes>
 	</div>
 </template>
@@ -16,6 +19,18 @@
 <script>
 import TreeNodes from '@/components/treeNodes.vue';
 import dataResource from '@/shared/data.json';
+
+function addItem(e, node, isOpen) {
+	if (isOpen) {
+		e.stopPropagation();
+	}
+	const newItem = {
+		title: 'Nuevo registro',
+		inner: [],
+	};
+	const newInner = [].concat(newItem, node.inner || []);
+	this.$set(node, 'inner', newInner);
+}
 
 function data() {
 	return {
@@ -29,6 +44,9 @@ export default {
 		TreeNodes,
 	},
 	data,
+	methods: {
+		addItem,
+	},
 };
 </script>
 
@@ -46,10 +64,11 @@ export default {
 	align-items: center;
 	border: 1px solid blue;
 	border-radius: 15px;
+	cursor: pointer;
 	display: flex;
 	height: 80px;
-	justify-content: flex-start;
+	justify-content: space-between;
 	margin: 0 0 2px 0;
-	padding-left: 15px;
+	padding: 0 15px;
 }
 </style>

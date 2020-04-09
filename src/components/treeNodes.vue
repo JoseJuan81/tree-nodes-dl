@@ -14,15 +14,11 @@
     </div>
 </template>
 <script>
-import AppNode from '@/components/appNode.vue';
-
-function created() {
-	this.isTree = true;
-}
+import AppNode from './appNode.vue';
 
 function data() {
 	return {
-		isTree: false,
+		isTree: true,
 	};
 }
 
@@ -31,7 +27,6 @@ export default {
 	components: {
 		AppNode,
 	},
-	created,
 	data,
 	props: {
 		children: {

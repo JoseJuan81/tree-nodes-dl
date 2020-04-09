@@ -1,7 +1,7 @@
 <template>
 	<div :style="`margin-left:${indent}`">
 		<div @click="isOpen = !isOpen">
-			<NodeContent :node="node"></NodeContent>
+			<NodeContent :node="node" :isOpen="isOpen"></NodeContent>
 		</div>
 		<div v-if="node[children]" v-show="isOpen">
 			<AppNode
@@ -39,12 +39,13 @@ export default {
 		NodeContent: {
 			props: {
 				node: { required: true },
+				isOpen: { required: true },
 			},
 			render() {
 				const { grand, text } = this.$parent;
-				const { node } = this;
+				const { node, isOpen } = this;
 				return (grand.$scopedSlots.default
-					? grand.$scopedSlots.default({ node })
+					? grand.$scopedSlots.default({ node, isOpen })
 					: <span>adentro:{node[text]}</span>);
 			},
 		},
