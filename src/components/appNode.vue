@@ -44,9 +44,10 @@ export default {
 			render() {
 				const { grand, text } = this.$parent;
 				const { node, isOpen } = this;
-				return (grand.$scopedSlots.default
+				const slot = (grand.$scopedSlots.default
 					? grand.$scopedSlots.default({ node, isOpen })
 					: <span>{node[text]}</span>);
+				return slot[0];
 			},
 		},
 	},

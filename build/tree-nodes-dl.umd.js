@@ -54,9 +54,10 @@
 					var ref$1 = this;
 					var node = ref$1.node;
 					var isOpen = ref$1.isOpen;
-					return (grand.$scopedSlots.default
+					var slot = (grand.$scopedSlots.default
 						? grand.$scopedSlots.default({ node: node, isOpen: isOpen })
 						: React.createElement( 'span', null, node[text] ));
+					return slot[0];
 				},
 			},
 		},
