@@ -1,6 +1,10 @@
 <template>
 	<div class="node-container-wrapper">
-		<div @click="isOpen = !isOpen" class="slot-node-content">
+		<div
+			class="slot-node-content"
+			:style="`padding-left:${indent * level}px`"
+			@click="isOpen = !isOpen"
+		>
 			<NodeContent :node="node" :isOpen="isOpen"></NodeContent>
 		</div>
 		<div v-if="node[children]" v-show="isOpen" class="node">
@@ -10,6 +14,7 @@
 				:children="children"
 				:text="text"
 				:node="child"
+				:indent="indent"
 			>
 			</AppNode>
 		</div>
@@ -24,12 +29,14 @@ function created() {
 	} else {
 		this.grand = parent.grand;
 	}
+	this.level = parent.level + 1;
 }
 
 function data() {
 	return {
 		grand: null,
 		isOpen: true,
+		level: 0,
 	};
 }
 
@@ -57,6 +64,10 @@ export default {
 		children: {
 			type: String,
 			required: true,
+		},
+		indent: {
+			default: 5,
+			type: [Number, String],
 		},
 		node: {
 			type: Object,

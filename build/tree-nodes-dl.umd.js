@@ -21,6 +21,11 @@
 	//
 	//
 	//
+	//
+	//
+	//
+	//
+	//
 
 
 	function created() {
@@ -30,12 +35,14 @@
 		} else {
 			this.grand = parent.grand;
 		}
+		this.level = parent.level + 1;
 	}
 
 	function data() {
 		return {
 			grand: null,
 			isOpen: true,
+			level: 0,
 		};
 	}
 
@@ -67,6 +74,10 @@
 			children: {
 				type: String,
 				required: true,
+			},
+			indent: {
+				default: 5,
+				type: [Number, String],
 			},
 			node: {
 				type: Object,
@@ -167,6 +178,7 @@
 	      "div",
 	      {
 	        staticClass: "slot-node-content",
+	        style: "padding-left:" + _vm.indent * _vm.level + "px",
 	        on: {
 	          click: function($event) {
 	            _vm.isOpen = !_vm.isOpen;
@@ -194,7 +206,12 @@
 	          _vm._l(_vm.node[_vm.children], function(child, indexChild) {
 	            return _c("AppNode", {
 	              key: indexChild,
-	              attrs: { children: _vm.children, text: _vm.text, node: child }
+	              attrs: {
+	                children: _vm.children,
+	                text: _vm.text,
+	                node: child,
+	                indent: _vm.indent
+	              }
 	            })
 	          }),
 	          1
@@ -239,6 +256,7 @@
 	function data$1() {
 		return {
 			isTree: true,
+			level: 0,
 		};
 	}
 
@@ -252,6 +270,9 @@
 			children: {
 				type: String,
 				required: true,
+			},
+			indent: {
+				type: [Number, String],
 			},
 			nodes: {
 				type: Array,
@@ -278,7 +299,12 @@
 	    _vm._l(_vm.nodes, function(node, indexNode) {
 	      return _c("AppNode", {
 	        key: indexNode,
-	        attrs: { node: node, children: _vm.children, text: _vm.text }
+	        attrs: {
+	          node: node,
+	          children: _vm.children,
+	          text: _vm.text,
+	          indent: _vm.indent
+	        }
 	      })
 	    }),
 	    1

@@ -5,6 +5,7 @@
 			class="tree-node"
 			children="inner"
 			text="title"
+			:indent="25"
 			:nodes="menuData"
 			v-slot="{ node, isOpen }"
 		>
@@ -64,7 +65,6 @@ export default {
 
 .issue {
 	align-items: center;
-	border-top: 1px solid blue;
 	box-sizing: border-box;
 	cursor: pointer;
 	display: flex;
@@ -75,8 +75,8 @@ export default {
 
 .tree-node {
 
-	.node {
-		padding-left: 10px;
+	.slot-node-content {
+		border-top: 1px solid blue;
 	}
 }
 </style>

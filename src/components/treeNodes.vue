@@ -6,6 +6,7 @@
 			:node="node"
 			:children="children"
 			:text="text"
+			:indent="indent"
 		></AppNode>
     </div>
 </template>
@@ -15,6 +16,7 @@ import AppNode from './appNode.vue';
 function data() {
 	return {
 		isTree: true,
+		level: 0,
 	};
 }
 
@@ -28,6 +30,9 @@ export default {
 		children: {
 			type: String,
 			required: true,
+		},
+		indent: {
+			type: [Number, String],
 		},
 		nodes: {
 			type: Array,

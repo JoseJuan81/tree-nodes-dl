@@ -1,6 +1,6 @@
 {
   "name": "tree-nodes-dl",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "author": "josejuan81",
   "private": false,
   "main": "build/tree-nodes-dl.umd.js",
