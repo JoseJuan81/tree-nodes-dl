@@ -1,4 +1,7 @@
 # tree-nodes-dl
+<img src="https://img.shields.io/github/repo-size/josejuan81/tree-nodes-dl">
+<img src="https://img.shields.io/npm/dm/tree-nodes-dl">
+<img src="https://img.shields.io/npm/v/tree-nodes-dl">
 
 > code Pen
 
@@ -13,9 +16,9 @@ npm install tree-nodes-dl
 global use
 ```js
 import Vue from 'vue';
-import { install } from 'tree-nodes-dl';
+import treeNodesDl from 'tree-nodes-dl';
 
-Vue.use(install);
+Vue.use(treeNodesDl);
 
 ```
 local use
@@ -184,3 +187,19 @@ export default {
   }
 }
 ```
+### Slot - scoped
+|**name** | **type** | **observation**
+|-|-|-|
+`node`| Object | Element of the array
+`isOpen`| `Boolean` | `true`: node open. `false` node collapsed
+
+>Note: you can use event handlers like `click` in de slot but this will change the node state (collapsed or opened). If you don't want this behavior just add `stop` as modifier in the `event` (@click.stop="clickHandler") or `stopPropagation()` (function clickHandler(e, node, isOpen) { e.stopPropagation()...})
+
+### Classes
+name | Observation |
+--|--|
+`.node-container-wrapper` | This is the main `class` and it's wrapping the `node`. You can access the `node` through this class.
+`collapsing` | This is de vue transition name. You can use it to apply custom transitions for collaping the `node`
+`.node` | This is the node class.
+
+> Note: If you want more details please check [here](https://codepen.io/JOSEJUAN/pen/jOWBreV?editors=1101).
