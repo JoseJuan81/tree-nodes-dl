@@ -54,7 +54,7 @@
 					node: { required: true },
 					isOpen: { required: true },
 				},
-				render: function render() {
+				render: function render(h) {
 					var ref = this.$parent;
 					var grand = ref.grand;
 					var text = ref.text;
@@ -63,7 +63,7 @@
 					var isOpen = ref$1.isOpen;
 					var slot = (grand.$scopedSlots.default
 						? grand.$scopedSlots.default({ node: node, isOpen: isOpen })
-						: React.createElement( 'span', null, node[text] ));
+						: h('span', node[text]));
 					return slot[0];
 				},
 			},

@@ -48,12 +48,12 @@ export default {
 				node: { required: true },
 				isOpen: { required: true },
 			},
-			render() {
+			render(h) {
 				const { grand, text } = this.$parent;
 				const { node, isOpen } = this;
 				const slot = (grand.$scopedSlots.default
 					? grand.$scopedSlots.default({ node, isOpen })
-					: <span>{node[text]}</span>);
+					: h('span', node[text]));
 				return slot[0];
 			},
 		},

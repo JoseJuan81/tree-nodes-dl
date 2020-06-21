@@ -1,24 +1,25 @@
 # tree-nodes-dl
 
-## Project setup
+## Install
+```code 
+npm install tree-nodes-dl
 ```
-npm install
-```
+## Use
+global use
+```js
+import Vue from 'vue';
+import { install } from 'tree-nodes-dl';
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Vue.use(install);
 
-### Compiles and minifies for production
 ```
-npm run build
+local use
+```js
+import treeNodes from 'tree-nodes-dl';
+...
+export default {
+    components: {
+        treeNodes,
+    }
+}
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
