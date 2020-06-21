@@ -1,11 +1,19 @@
 import treeNodesDl from './components/treeNodes.vue';
 
 // Declare install function executed by Vue.use()
-export function install(Vue) {
+// export function install(Vue) {
+// 	if (install.installed) return;
+// 	install.installed = true;
+// 	Vue.component('tree-nodes-dl', treeNodesDl);
+// }
+// Declare install function executed by Vue.use()
+const install = function (Vue) {
 	if (install.installed) return;
 	install.installed = true;
 	Vue.component('tree-nodes-dl', treeNodesDl);
-}
+};
+treeNodesDl.install = install;
+
 
 // Create module definition for Vue.use()
 const plugin = {

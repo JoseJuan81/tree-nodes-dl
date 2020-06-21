@@ -54,7 +54,7 @@ export default {
 				const slot = (grand.$scopedSlots.default
 					? grand.$scopedSlots.default({ node, isOpen })
 					: h('span', node[text]));
-				return slot[0];
+				return Array.isArray(slot) ? slot[0] : slot;
 			},
 		},
 	},

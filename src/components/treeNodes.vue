@@ -21,7 +21,7 @@ function data() {
 }
 
 export default {
-	name: 'tree-nodes',
+	name: 'tree-node',
 	components: {
 		AppNode,
 	},
