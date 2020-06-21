@@ -26,6 +26,8 @@
 	//
 	//
 	//
+	//
+	//
 
 
 	function created() {
@@ -173,51 +175,58 @@
 	  var _vm = this;
 	  var _h = _vm.$createElement;
 	  var _c = _vm._self._c || _h;
-	  return _c("div", { staticClass: "node-container-wrapper" }, [
-	    _c(
-	      "div",
-	      {
-	        staticClass: "slot-node-content",
-	        style: "padding-left:" + _vm.indent * _vm.level + "px",
-	        on: {
-	          click: function($event) {
-	            _vm.isOpen = !_vm.isOpen;
+	  return _c(
+	    "div",
+	    { staticClass: "node-container-wrapper" },
+	    [
+	      _c(
+	        "div",
+	        {
+	          staticClass: "slot-node-content",
+	          style: "padding-left:" + _vm.indent * _vm.level + "px",
+	          on: {
+	            click: function($event) {
+	              _vm.isOpen = !_vm.isOpen;
+	            }
 	          }
-	        }
-	      },
-	      [_c("NodeContent", { attrs: { node: _vm.node, isOpen: _vm.isOpen } })],
-	      1
-	    ),
-	    _vm._v(" "),
-	    _vm.node[_vm.children]
-	      ? _c(
-	          "div",
-	          {
-	            directives: [
+	        },
+	        [_c("NodeContent", { attrs: { node: _vm.node, isOpen: _vm.isOpen } })],
+	        1
+	      ),
+	      _vm._v(" "),
+	      _c("transition", { attrs: { name: "collapsing", mode: "out-in" } }, [
+	        _vm.node[_vm.children]
+	          ? _c(
+	              "div",
 	              {
-	                name: "show",
-	                rawName: "v-show",
-	                value: _vm.isOpen,
-	                expression: "isOpen"
-	              }
-	            ],
-	            staticClass: "node"
-	          },
-	          _vm._l(_vm.node[_vm.children], function(child, indexChild) {
-	            return _c("AppNode", {
-	              key: indexChild,
-	              attrs: {
-	                children: _vm.children,
-	                text: _vm.text,
-	                node: child,
-	                indent: _vm.indent
-	              }
-	            })
-	          }),
-	          1
-	        )
-	      : _vm._e()
-	  ])
+	                directives: [
+	                  {
+	                    name: "show",
+	                    rawName: "v-show",
+	                    value: _vm.isOpen,
+	                    expression: "isOpen"
+	                  }
+	                ],
+	                staticClass: "node"
+	              },
+	              _vm._l(_vm.node[_vm.children], function(child, indexChild) {
+	                return _c("AppNode", {
+	                  key: indexChild,
+	                  attrs: {
+	                    children: _vm.children,
+	                    text: _vm.text,
+	                    node: child,
+	                    indent: _vm.indent
+	                  }
+	                })
+	              }),
+	              1
+	            )
+	          : _vm._e()
+	      ])
+	    ],
+	    1
+	  )
 	};
 	var __vue_staticRenderFns__ = [];
 	__vue_render__._withStripped = true;
