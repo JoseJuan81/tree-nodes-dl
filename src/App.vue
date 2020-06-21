@@ -75,8 +75,27 @@ export default {
 
 .tree-node {
 
+	.node-container-wrapper {
+		overflow: hidden;
+	}
+
 	.slot-node-content {
 		border-top: 1px solid blue;
 	}
+}
+
+.collapsing-enter-active {
+  animation: bounce-in 1s;
+}
+.collapsing-leave-active {
+  animation: bounce-in .75s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    max-height: 0px;
+  }
+  100% {
+    max-height: 2000px;
+  }
 }
 </style>

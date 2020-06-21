@@ -7,17 +7,19 @@
 		>
 			<NodeContent :node="node" :isOpen="isOpen"></NodeContent>
 		</div>
-		<div v-if="node[children]" v-show="isOpen" class="node">
-			<AppNode
-				v-for="(child, indexChild) in node[children]"
-				:key="indexChild"
-				:children="children"
-				:text="text"
-				:node="child"
-				:indent="indent"
-			>
-			</AppNode>
-		</div>
+		<transition name="collapsing" mode="out-in">
+			<div v-if="node[children]" v-show="isOpen" class="node">
+				<AppNode
+					v-for="(child, indexChild) in node[children]"
+					:key="indexChild"
+					:children="children"
+					:text="text"
+					:node="child"
+					:indent="indent"
+				>
+				</AppNode>
+			</div>
+		</transition>
 	</div>
 </template>
 <script>
