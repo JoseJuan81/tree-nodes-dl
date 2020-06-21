@@ -58,7 +58,7 @@ var script = {
 				var slot = (grand.$scopedSlots.default
 					? grand.$scopedSlots.default({ node: node, isOpen: isOpen })
 					: h('span', node[text]));
-				return slot[0];
+				return Array.isArray(slot) ? slot[0] : slot;
 			},
 		},
 	},
@@ -255,7 +255,7 @@ function data$1() {
 }
 
 var script$1 = {
-	name: 'tree-nodes',
+	name: 'tree-node',
 	components: {
 		AppNode: __vue_component__,
 	},
@@ -337,11 +337,19 @@ __vue_render__$1._withStripped = true;
   );
 
 // Declare install function executed by Vue.use()
-function install(Vue) {
+// export function install(Vue) {
+// 	if (install.installed) return;
+// 	install.installed = true;
+// 	Vue.component('tree-nodes-dl', treeNodesDl);
+// }
+// Declare install function executed by Vue.use()
+var install = function (Vue) {
 	if (install.installed) { return; }
 	install.installed = true;
 	Vue.component('tree-nodes-dl', __vue_component__$1);
-}
+};
+__vue_component__$1.install = install;
+
 
 // Create module definition for Vue.use()
 var plugin = {
@@ -360,4 +368,3 @@ if (GlobalVue) {
 }
 
 export default __vue_component__$1;
-export { install };
